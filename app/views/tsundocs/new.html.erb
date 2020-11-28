@@ -1,0 +1,32 @@
+<h1>積ん読の作成</h1>
+<div>
+  <%= form_with url: tsundocs_path, method: :post, local: true do |f| %>
+    <div>
+      <div>
+        本のタイトル
+      </div>
+      <%= f.text_field :title %>
+    </div>
+    <div>
+      <div>
+        本の作者
+      </div>
+      <%= f.text_field :author %>
+    </div>
+    <div>
+      <div>
+        優先度ポイント設定
+      </div>
+      <%= f.number_field :priority_pt %>
+
+    <div>
+      <div>
+        非公開設定
+      </div>
+      <%= f.check_box :private %>
+    </div>
+    <div>
+      <%= f.submit "登録" %>
+    </div>
+  <% end %>
+</div>

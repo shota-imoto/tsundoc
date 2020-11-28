@@ -1,6 +1,6 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
-# Command: ridgepole -c config/database.yml --apply --dry-run
+# Command: ridgepole -c config/database.yml --apply
 
 create_table "tsundocs", force: :cascade do |t|
   t.integer "tsundoc_list_id", null: false
@@ -18,7 +18,7 @@ create_table "yondocos" do |t|
   t.timestamps
 end
 
-create_table "tsundocLists", force: :cascade do |t|
+create_table "tsundoc_lists", force: :cascade do |t|
   t.integer "user_id", null: false
   t.timestamps
 end
