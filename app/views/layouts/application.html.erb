@@ -11,6 +11,7 @@
 
   <body>
     <div>
+      <%=link_to "トップページ", root_path %>
       <% if user_signed_in? %>
         <%=link_to "積ん読を登録", new_tsundoc_path	%>
         <%=link_to "ログアウト", destroy_user_session_path, method: :delete %>
