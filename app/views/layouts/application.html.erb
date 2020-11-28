@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Tsundoc</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <div>
+      <% if user_signed_in? %>
+        <%=link_to "ログアウト", destroy_user_session_path, method: :delete %>
+      <% else %>
+        <%=link_to "ユーザ登録", new_user_registration_path%>
+        <%=link_to "ログインページ", new_user_session_path%>
+      <% end %>
+    </div>
+    <%= yield %>
+  </body>
+</html>
