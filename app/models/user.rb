@@ -4,5 +4,5 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :yondocos
-  has_one :tsundoclist
+  has_one :tsundoc_list
 end
