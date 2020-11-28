@@ -11,7 +11,7 @@ class TsundocsController < ApplicationController
   private
 
   def tsundoc_params
-    params.permit(:)
+    # params.permit(:)
   end
 
   def book_params
