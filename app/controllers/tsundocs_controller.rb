@@ -16,6 +16,7 @@ class TsundocsController < ApplicationController
     @material = Material.create
     @book = Book.create(book_params)
     @tsundoc = Tsundoc.create(tsundoc_params)
+    redirect_to root_path
   end
 
 
