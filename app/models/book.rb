@@ -2,9 +2,9 @@ class Book < ApplicationRecord
   belongs_to :material
   delegate :tsundoc, to: :material
 
-  # def create(tsundoc_params)
+  # ↓これをmaterialクラスに移管する
+  # def self.create(book_params)
   #   material = Material.create
-  #   create(tsundoc_params)
+  #   super(book_params.merge(material_id: material.id))
   # end
-
 end
