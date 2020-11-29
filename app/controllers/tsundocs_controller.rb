@@ -13,19 +13,20 @@ class TsundocsController < ApplicationController
   end
 
   def create
-    @material = Material.create
-    @book = Book.create(book_params)
-    @tsundoc = Tsundoc.create(tsundoc_params)
+    ApplicationRecord.transaction do
+      @tsundoc_product = Material.factory(params[:kind], book_params)
+      @tsundoc = Tsundoc.create(tsundoc_params)
+    end
   end
 
 
   private
 
   def tsundoc_params
-    params.permit(:priority_pt, :private).merge(tsundoc_list_id: current_user.tsundoc_list.id, material_id: @material.id)
+    params.permit(:priority_pt, :private).merge(tsundoc_list_id: current_user.tsundoc_list.id, material_id: @tsundoc_product.material_id)
   end
 
   def book_params
-    params.permit(:title, :author).merge(material_id: @material.id)
+    params.permit(:title, :author)
   end
 end
