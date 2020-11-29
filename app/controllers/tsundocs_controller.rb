@@ -17,6 +17,7 @@ class TsundocsController < ApplicationController
       @tsundoc_product = Material.factory(params[:kind], book_params)
       @tsundoc = Tsundoc.create(tsundoc_params)
     end
+    redirect_to root_path
   end
 
 
