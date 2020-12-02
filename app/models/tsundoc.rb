@@ -10,6 +10,4 @@ class Tsundoc < ApplicationRecord
   def get_tsundoc_product(kind = "book")
     material.get_tsundoc_product(kind)
   end
-
-
 end
