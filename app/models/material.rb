@@ -7,4 +7,8 @@ class Material < ApplicationRecord
     material = create
     const_get(kind.classify).create(params.merge(material_id: material.id))
   end
+
+  def get_tsundoc_product(kind = "book")
+    send(kind.downcase)
+  end
 end
