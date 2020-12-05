@@ -53,7 +53,7 @@ ActiveRecord::Schema.define(version: 0) do
     t.integer "material_id", null: false
     t.integer "status", default: 0, null: false
     t.integer "priority_pt", default: 0, null: false
-    t.boolean "private", default: false
+    t.boolean "secret", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

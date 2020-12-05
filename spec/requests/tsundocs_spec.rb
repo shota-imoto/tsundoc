@@ -17,7 +17,7 @@ RSpec.describe "Tsundocs", type: :request do
       sign_in user
     end
     it "302レスポンス" do
-      post tsundocs_path, params: { priority_pt: 100, private: false, title: "book", author: "John", kind: "book" }
+      post tsundocs_path, params: { priority_pt: 100, secret: false, title: "book", author: "John", kind: "book" }
       expect(response).to have_http_status(302)
     end
   end

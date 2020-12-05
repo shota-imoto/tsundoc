@@ -1,7 +1,14 @@
 module DeviseSessionModule
-  def login_user(user)
-    controller.stub(:authenticate_user!).and_return true
-    @request.env["devise.mapping"] = Devise.mappings[:user]
-    sign_in user
+    include Warden::Test::Helpers
+
+  def sign_in(resource_or_scope, resource = nil)
+    resource ||= resource_or_scope
+    scope = Devise::Mapping.find_scope!(resource_or_scope)
+    login_as(resource, scope: scope)
+  end
+
+  def sign_out(resource_or_scope)
+    scope = Devise::Mapping.find_scope!(resource_or_scope)
+    logout(scope)
   end
 end
