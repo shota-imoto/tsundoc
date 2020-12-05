@@ -3,7 +3,7 @@
 #   t.integer "material_id", null: false
 #   t.integer "status", null: false, default: 0
 #   t.integer "priority_pt", null: false, default: 0
-#   t.boolean "private", null: :false, default: :false
+#   t.boolean "secret", null: :false, default: :false
 #   t.timestamps
 # end
 
@@ -20,11 +20,10 @@ class TsundocsController < ApplicationController
     redirect_to root_path
   end
 
-
   private
 
   def tsundoc_params
-    params.permit(:priority_pt, :private).merge(tsundoc_list_id: current_user.tsundoc_list.id, material_id: @tsundoc_product.material_id)
+    params.permit(:priority_pt, :secret).merge(tsundoc_list_id: current_user.tsundoc_list.id, material_id: @tsundoc_product.material_id)
   end
 
   def book_params

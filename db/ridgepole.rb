@@ -7,7 +7,7 @@ create_table "tsundocs", force: :cascade do |t|
   t.integer "material_id", null: false
   t.integer "status", null: false, default: 0
   t.integer "priority_pt", null: false, default: 0
-  t.boolean "private", null: :false, default: :false
+  t.boolean "secret", null: :false, default: :false
   t.timestamps
 end
 
