@@ -1,8 +1,8 @@
-module BookHelper
+module MovieHelper
   include ActionView::Helpers::TagHelper
   include ActionView::Context
   def display
-    keys = %w(title author)
+    keys = %w(title)
 
     html = tag.a self.class
     html += " "

@@ -1,6 +1,5 @@
 # create_table "tsundocs", force: :cascade do |t|
 #   t.integer "tsundoc_list_id", null: false
-#   t.integer "material_id", null: false
 #   t.integer "status", null: false, default: 0
 #   t.integer "priority_pt", null: false, default: 0
 #   t.boolean "secret", null: :false, default: :false
@@ -13,20 +12,16 @@ class TsundocsController < ApplicationController
   end
 
   def create
-    ApplicationRecord.transaction do
-      @tsundoc_product = Material.factory(params[:kind], book_params)
-      @tsundoc = Tsundoc.create(tsundoc_params)
-    end
-    redirect_to root_path
+    @tsundoc = Tsundoc.create(tsundoc_params)
   end
 
   private
 
   def tsundoc_params
-    params.permit(:priority_pt, :secret).merge(tsundoc_list_id: current_user.tsundoc_list.id, material_id: @tsundoc_product.material_id)
+    params.permit(:priority_pt, :secret).merge(tsundoc_list_id: current_user.tsundoc_list.id, tsundocable_id: tsundocable.id, tsundocable_type: tsundocable.class)
   end
 
-  def book_params
-    params.permit(:title, :author)
+  def tsundocable
+    @tsundocable || (raise "In TsundocablesController(like a BooksController), you must define Tsundocable instance variable as '@tsundocable'")
   end
 end

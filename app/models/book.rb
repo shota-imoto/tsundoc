@@ -1,5 +1,4 @@
 class Book < ApplicationRecord
   include BookHelper
-  belongs_to :material
-  delegate :tsundoc, to: :material
+  has_many :tsundocs, as: :tsundocable
 end
