@@ -71,7 +71,7 @@ end
 
 create_table "tags", force: :cascade do |t|
   t.string "name", null: false
-  t.integer "kind", null: false, default: 0
+  t.string "type", null: false
   t.timestamps
 end
 
