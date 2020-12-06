@@ -15,17 +15,12 @@ ActiveRecord::Schema.define(version: 0) do
   create_table "books", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title", null: false
     t.string "author"
-    t.integer "material_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "materials", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-  end
-
   create_table "movies", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title", null: false
-    t.integer "material_id", null: false
   end
 
   create_table "taggings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -50,7 +45,8 @@ ActiveRecord::Schema.define(version: 0) do
 
   create_table "tsundocs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "tsundoc_list_id", null: false
-    t.integer "material_id", null: false
+    t.integer "tsundocable_id", null: false
+    t.string "tsundocable_type", null: false
     t.integer "status", default: 0, null: false
     t.integer "priority_pt", default: 0, null: false
     t.boolean "secret", default: false

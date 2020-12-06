@@ -4,7 +4,8 @@
 
 create_table "tsundocs", force: :cascade do |t|
   t.integer "tsundoc_list_id", null: false
-  t.integer "material_id", null: false
+  t.integer "tsundocable_id", null: false
+  t.string "tsundocable_type", null: false
   t.integer "status", null: false, default: 0
   t.integer "priority_pt", null: false, default: 0
   t.boolean "secret", null: :false, default: :false
@@ -23,19 +24,14 @@ create_table "tsundoc_lists", force: :cascade do |t|
   t.timestamps
 end
 
-create_table "materials", force: :cascade do |t|
-end
-
 create_table "books", force: :cascade do |t|
   t.string "title", null: false
   t.string "author"
-  t.integer "material_id", null: false
   t.timestamps
 end
 
 create_table "movies", force: :cascade do |t|
   t.string "title", null: false
-  t.integer "material_id", null: false
   t.timestamp
 end
 

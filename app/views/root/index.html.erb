@@ -3,7 +3,7 @@
   <% if user_signed_in? %>
     <% @tsundocs.each do |tsundoc| %>
       <div>
-        <%= tsundoc.get_tsundoc_product.display_book %>
+        <%= tsundoc.tsundocable.display %>
         <%= tsundoc.display_tsundoc %>
       </div>
     <% end %>
