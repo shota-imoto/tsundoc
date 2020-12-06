@@ -1,0 +1,20 @@
+<h1>タグの作成</h1>
+<div>
+  <%= form_with model: @tag, method: :post, local: true do |f| %>
+    <div>
+      <div>
+        タグ
+      </div>
+      <%= f.text_field :name %>
+    </div>
+    <div>
+      <div>
+        ジャンル
+      </div>
+      <%= f.select :type, ["BookTag", "MovieTag"] %>
+    </div>
+    <div>
+      <%= f.submit "登録" %>
+    </div>
+  <% end %>
+</div>
