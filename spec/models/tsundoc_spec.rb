@@ -1,11 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe Tsundoc, type: :model do
-
   describe 'list_owned_by' do
     let(:user) { FactoryBot.create(:user) }
     let(:tsundoc_list) { FactoryBot.create(:tsundoc_list, user: user) }
-
     subject { Tsundoc.list_owned_by(user) }
 
     context "本を登録した場合" do

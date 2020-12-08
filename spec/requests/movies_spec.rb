@@ -13,11 +13,11 @@ RSpec.describe "Movies", type: :request do
     end
   end
 
-
   describe "POST#create" do
     before do
       sign_in user
     end
+
     it "302レスポンス" do
       post movies_path, params: { priority_pt: 100, secret: false, title: "movie", tag_ids: tag_ids}
       expect(response).to have_http_status(302)

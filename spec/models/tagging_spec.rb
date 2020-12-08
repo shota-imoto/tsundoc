@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe Tagging, type: :model do
-
   describe 'factory' do
     let(:tsundoc_list) { FactoryBot.create(:tsundoc_list, :with_user) }
     before { Tagging.factory(tag_ids, tsundoc.id) }

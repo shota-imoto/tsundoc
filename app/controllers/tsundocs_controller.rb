@@ -26,7 +26,6 @@ class TsundocsController < ApplicationController
     params.permit(tag_ids: []).merge(tsundoc_id: @tsundoc.id)
   end
 
-
   def tsundocable
     @tsundocable || (raise "In TsundocablesController(like a BooksController), you must define Tsundocable instance variable as '@tsundocable'")
   end
