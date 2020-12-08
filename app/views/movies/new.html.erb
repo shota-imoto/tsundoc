@@ -12,6 +12,13 @@
         優先度ポイント設定
       </div>
       <%= f.number_field :priority_pt %>
+    </div>
+    <div>
+      <div>
+        タグ付け
+      </div>
+      <%= f.collection_check_boxes :tag_ids, @tags, :id, :name %>
+    </div>
     <div>
       <div>
         非公開設定

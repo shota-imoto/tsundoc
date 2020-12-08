@@ -4,6 +4,5 @@ FactoryBot.define do
     email {"dammy@email.com"}
     password {"password"}
     password_confirmation {"password"}
-    # association :tsundoc_list
   end
 end

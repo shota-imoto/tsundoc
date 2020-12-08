@@ -1,6 +1,7 @@
 class BooksController < TsundocsController
   def new
     @tsundoc = Tsundoc.new
+    @tags = BookTag.all
   end
 
   def create
