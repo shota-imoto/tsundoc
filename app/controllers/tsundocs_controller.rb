@@ -13,6 +13,7 @@ class TsundocsController < ApplicationController
 
   def create
     @tsundoc = Tsundoc.create(tsundoc_params)
+    @taggings = Tagging.factory(tagging_params[:tag_ids], tagging_params[:tsundoc_id])
   end
 
   private
@@ -20,6 +21,11 @@ class TsundocsController < ApplicationController
   def tsundoc_params
     params.permit(:priority_pt, :secret).merge(tsundoc_list_id: current_user.tsundoc_list.id, tsundocable_id: tsundocable.id, tsundocable_type: tsundocable.class)
   end
+
+  def tagging_params
+    params.permit(tag_ids: []).merge(tsundoc_id: @tsundoc.id)
+  end
+
 
   def tsundocable
     @tsundocable || (raise "In TsundocablesController(like a BooksController), you must define Tsundocable instance variable as '@tsundocable'")

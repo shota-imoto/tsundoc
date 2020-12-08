@@ -1,6 +1,7 @@
 class MoviesController < TsundocsController
   def new
     @tsundoc = Tsundoc.new
+    @tags = MovieTag.all
   end
 
   def create
