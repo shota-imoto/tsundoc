@@ -6,4 +6,8 @@ class Tsundoc < ApplicationRecord
   def self.list_owned_by(user)
     TsundocList.owned_by(user).tsundocs
   end
+
+  def is?(checked_type)
+    tsundocable_type == checked_type
+  end
 end

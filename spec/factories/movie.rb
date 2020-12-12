@@ -1,5 +1,5 @@
 FactoryBot.define do
   factory :movie do
-    sequence(:title) { |n| "タイトル#{n}" }
+    sequence(:title) { |n| "映画のタイトル#{n}" }
   end
 end
