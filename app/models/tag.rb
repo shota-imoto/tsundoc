@@ -1,5 +1,6 @@
 class Tag < ApplicationRecord
   has_many :tagging
+  belongs_to :user
   validates :name, presence: true
 
   def self.factory(params)

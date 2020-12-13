@@ -72,6 +72,7 @@ end
 create_table "tags", force: :cascade do |t|
   t.string "name", null: false
   t.string "type", null: false
+  t.integer "user_id", null: false
   t.timestamps
 end
 

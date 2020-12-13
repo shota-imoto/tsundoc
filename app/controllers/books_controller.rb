@@ -1,7 +1,7 @@
 class BooksController < TsundocsController
   def new
     @tsundoc = Tsundoc.new
-    @tags = BookTag.all
+    @tags = current_user.book_tags
   end
 
   def create

@@ -14,7 +14,7 @@ class TagsController < ApplicationController
   private
 
   def tag_params
-    params.require(:tag).permit(:name, :type)
+    params.require(:tag).permit(:name, :type).merge(user_id: current_user.id)
   end
 end
 
