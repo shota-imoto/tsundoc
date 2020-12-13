@@ -5,4 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :yondocos
   has_one :tsundoc_list
+  has_many :book_tags
+  has_many :movie_tags
 end

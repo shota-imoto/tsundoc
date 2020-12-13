@@ -9,5 +9,9 @@ FactoryBot.define do
     trait :for_movie do
       type { "MovieTag" }
     end
+
+    trait :with_user do
+      association :user
+    end
   end
 end
