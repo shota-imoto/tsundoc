@@ -7,6 +7,11 @@
 # end
 
 class TsundocsController < ApplicationController
+  def index
+    tsundoc_list = current_user.tsundoc_list
+    @tsundocs = tsundoc_list.gets_tsundocs_of(params[:tsundocable_type] || "Book")
+  end
+
   def new
     @tsundoc = Tsundoc.new
   end

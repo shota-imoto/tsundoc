@@ -4,7 +4,8 @@ class TagsController < ApplicationController
   end
 
   def create
-    if @tag = Tag.factory(tag_params)
+    @tag = Tag.new(tag_params)
+    if @tag.save
       redirect_to root_path
     else
       render :new
@@ -14,7 +15,7 @@ class TagsController < ApplicationController
   private
 
   def tag_params
-    params.require(:tag).permit(:name, :type).merge(user_id: current_user.id)
+    params.permit(:name, :type).merge(user_id: current_user.id)
   end
 end
 

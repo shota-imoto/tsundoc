@@ -1,0 +1,11 @@
+<h1>積んどく？</h1>
+<div>
+  <%=link_to "本のリスト", tsundocs_path(tsundocable_type: "Book") %>
+  <%=link_to "映画のリスト", tsundocs_path(tsundocable_type: "Movie") %>
+  <% @tsundocs.each do |tsundoc| %>
+    <div>
+      <%= tsundoc.tsundocable.display %>
+      <%= tsundoc.display_tsundoc %>
+    </div>
+  <% end %>
+</div>
