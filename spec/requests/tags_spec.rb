@@ -15,7 +15,7 @@ RSpec.describe "Tags", type: :request do
   end
 
   describe "POST#create" do
-    subject { post tags_path, params: { tag: { name: tag_name, type: "BookTag" }} }
+    subject { post tags_path, params: { name: tag_name, type: "BookTag" } }
 
     context "正常なパラメータを渡した場合" do
       let(:tag_name) { "tag" }

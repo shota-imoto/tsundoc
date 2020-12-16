@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Tag, type: :model do
   describe 'factory' do
     let(:user) { FactoryBot.create(:user) }
-    before { Tag.factory(params) }
+    before { Tag.create_by_type(params) }
 
     context "本のタグのパラメータを入力した場合" do
     let(:params) { FactoryBot.attributes_for(:tag, :for_book, user_id: user.id) }

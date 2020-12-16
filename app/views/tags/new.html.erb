@@ -1,6 +1,6 @@
 <h1>タグの作成</h1>
 <div>
-  <%= form_with model: @tag, method: :post, local: true do |f| %>
+  <%= form_with url: tags_path, method: :post, local: true do |f| %>
     <div>
       <div>
         タグ
