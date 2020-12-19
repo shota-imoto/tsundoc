@@ -1,13 +1,17 @@
 <h1>積んどく？</h1>
 <div>
   <% if user_signed_in? %>
-    <%=link_to "本のリスト", root_path(tsundocable_type: "Book") %>
-    <%=link_to "映画のリスト", root_path(tsundocable_type: "Movie") %>
-    <% @tsundocs.each do |tsundoc| %>
+    <%=link_to "本のリスト", root_path(tag_type: "BookTag") %>
+    <%=link_to "映画のリスト", root_path(tag_type: "MovieTag") %>
+    <% @tags.each do |tag| %>
       <div>
-        <%= tsundoc.tsundocable.display %>
-        <%= tsundoc.display_tsundoc %>
-      </div>
+        <h2><%= tag.name %></h2>
+      <% tag.tsundocs.each do |tsundoc| %>
+        <div>
+          <%= tsundoc.tsundocable.display %>
+          <%= tsundoc.display_tsundoc %>
+        </div>
+      <% end %>
     <% end %>
   <% else %>
     <h2>ログイン</h2>

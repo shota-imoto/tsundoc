@@ -1,5 +1,6 @@
 class Tag < ApplicationRecord
-  has_many :tagging
+  has_many :taggings
+  has_many :tsundocs, through: :taggings
   belongs_to :user
   validates :name, presence: true
 
