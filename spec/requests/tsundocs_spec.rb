@@ -17,7 +17,7 @@ RSpec.describe "Tsundocs", type: :request do
     subject { response.body }
 
     context "初回表示の場合" do
-      before { get root_path }
+      before { get tsundocs_path }
 
       it "200レスポンス" do
         expect(response).to have_http_status(200)
@@ -33,7 +33,7 @@ RSpec.describe "Tsundocs", type: :request do
     end
 
     context "本のリストを表示する場合" do
-      before { get root_path(tsundocable_type: "Book") }
+      before { get tsundocs_path(tsundocable_type: "Book") }
 
       it "200レスポンス" do
         expect(response).to have_http_status(200)
@@ -49,7 +49,7 @@ RSpec.describe "Tsundocs", type: :request do
     end
 
     context "映画のリストを表示する場合" do
-      before { get root_path(tsundocable_type: "Movie") }
+      before { get tsundocs_path(tsundocable_type: "Movie") }
 
       it "200レスポンス" do
         expect(response).to have_http_status(200)

@@ -7,4 +7,8 @@ class User < ApplicationRecord
   has_one :tsundoc_list
   has_many :book_tags
   has_many :movie_tags
+
+  def get_associated_objects(class_name)
+    send(class_name.underscore.pluralize)
+  end
 end

@@ -1,5 +1,6 @@
 class Tag < ApplicationRecord
-  has_many :tagging
+  has_many :taggings
+  has_many :tsundocs, through: :taggings
   belongs_to :user
   validates :name, presence: true
 
@@ -8,4 +9,5 @@ class Tag < ApplicationRecord
     # レコード作成の成否をbooleanで返すため、createではなくnew+saveを用いる
     const_get(params[:type]).new(params).save
   end
+
 end
