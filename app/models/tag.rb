@@ -9,5 +9,4 @@ class Tag < ApplicationRecord
     # レコード作成の成否をbooleanで返すため、createではなくnew+saveを用いる
     const_get(params[:type]).new(params).save
   end
-
 end

@@ -9,7 +9,6 @@ RSpec.describe User, type: :model do
       context "本のタグ" do
         let!(:tags) { FactoryBot.create_list(:tag, 5, :for_book, user: user) }
         let!(:book_tags) { tags.map{ |t| t.becomes(BookTag) } }
-
         subject { user.get_associated_objects("BookTag") }
 
         it "正しいオブジェクトが返される" do
