@@ -1,14 +1,13 @@
 class MoviesController < TsundocsController
+  include TsundocablesControllerModule
+
   def new
     @tsundoc = Tsundoc.new
     @tags = current_user.movie_tags
   end
 
   def create
-    ApplicationRecord.transaction do
-      @tsundocable = Movie.create(movie_params)
-      super
-    end
+    @tsundocable = Movie.create(movie_params)
     redirect_to root_path
   end
 

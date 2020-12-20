@@ -1,14 +1,13 @@
 class BooksController < TsundocsController
+  include TsundocablesControllerModule
+
   def new
     @tsundoc = Tsundoc.new
     @tags = current_user.book_tags
   end
 
   def create
-    ApplicationRecord.transaction do
-      @tsundocable = Book.create(book_params)
-      super
-    end
+    @tsundocable = Book.create(book_params)
     redirect_to root_path
   end
 
