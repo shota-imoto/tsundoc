@@ -2,7 +2,6 @@ require 'rails_helper'
 
 RSpec.describe "Movies", type: :request do
   let(:user) { FactoryBot.create(:user) }
-  let!(:tsundoc_list) { FactoryBot.create(:tsundoc_list, user: user) }
   let!(:tags) { FactoryBot.create_list(:tag, 3, :for_movie, user: user) }
   let(:tag_ids) { tags.map(&:id) }
   let(:tag_names) { tags.map(&:name) }

@@ -5,8 +5,8 @@ RSpec.describe "Tsundocs", type: :request do
   let(:tsundoc_list) { FactoryBot.create(:tsundoc_list, user: user) }
 
   describe "GET#index" do
-    let!(:book_tsundocs) { FactoryBot.create_list(:tsundoc, 5, :with_book, tsundoc_list: tsundoc_list) }
-    let!(:movie_tsundocs) { FactoryBot.create_list(:tsundoc, 5, :with_movie, tsundoc_list: tsundoc_list) }
+    let!(:book_tsundocs) { FactoryBot.create_list(:tsundoc, 5, :with_book, user: user) }
+    let!(:movie_tsundocs) { FactoryBot.create_list(:tsundoc, 5, :with_movie, user: user) }
     let(:book_titles) { book_tsundocs.map{|t| t.tsundocable.title} }
     let(:movie_titles) { movie_tsundocs.map{|t| t.tsundocable.title} }
 

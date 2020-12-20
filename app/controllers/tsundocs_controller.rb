@@ -8,8 +8,7 @@
 
 class TsundocsController < ApplicationController
   def index
-    tsundoc_list = current_user.tsundoc_list
-    @tsundocs = tsundoc_list.gets_tsundocs_of(params[:tsundocable_type] || "Book")
+    @tsundocs = current_user.gets_tsundocs_of(params[:tsundocable_type] || "Book")
   end
 
   def new
@@ -24,7 +23,7 @@ class TsundocsController < ApplicationController
   private
 
   def tsundoc_params
-    params.permit(:priority_pt, :secret).merge(tsundoc_list_id: current_user.tsundoc_list.id, tsundocable_id: tsundocable.id, tsundocable_type: tsundocable.class)
+    params.permit(:priority_pt, :secret).merge(user: current_user, tsundocable_id: tsundocable.id, tsundocable_type: tsundocable.class)
   end
 
   def tagging_params

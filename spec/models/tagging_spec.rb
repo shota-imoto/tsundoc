@@ -2,11 +2,11 @@ require 'rails_helper'
 
 RSpec.describe Tagging, type: :model do
   describe 'factory' do
-    let(:tsundoc_list) { FactoryBot.create(:tsundoc_list, :with_user) }
+    let(:user) { FactoryBot.create(:user) }
     before { Tagging.factory(tag_ids, tsundoc.id) }
 
     context "本のタグを入力した場合" do
-      let(:tsundoc) { FactoryBot.create(:tsundoc, :with_book, tsundoc_list: tsundoc_list) }
+      let(:tsundoc) { FactoryBot.create(:tsundoc, :with_book, user: user) }
       let(:tag_ids) { tags.map(&:id) }
 
       context "３個のダグ付をしたい場合" do
@@ -27,7 +27,7 @@ RSpec.describe Tagging, type: :model do
     end
 
     context "映画のタグを入力した場合" do
-      let(:tsundoc) { FactoryBot.create(:tsundoc, :with_movie, tsundoc_list: tsundoc_list) }
+      let(:tsundoc) { FactoryBot.create(:tsundoc, :with_movie, user: user) }
       let(:tag_ids) { tags.map(&:id) }
 
       context "３個のダグ付をしたい場合" do

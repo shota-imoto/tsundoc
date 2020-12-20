@@ -1,7 +1,5 @@
 FactoryBot.define do
   factory :tsundoc do
-    transient { user { User.new } }
-
     sequence(:priority_pt){ |n| 100 + n }
     status { 0 }
 
@@ -15,14 +13,14 @@ FactoryBot.define do
 
     trait :with_book_tag do
       after(:create) do |tsundoc, e|
-        tag = FactoryBot.create(:tag, :for_book, user: e.user)
+        tag = FactoryBot.create(:tag, :for_book, user: tsundoc.user)
         FactoryBot.create(:tagging, tsundoc: tsundoc, tag: tag)
       end
     end
 
     trait :with_movie_tag do
       after(:create) do |tsundoc, e|
-        tag = FactoryBot.create(:tag, :for_movie, user: e.user)
+        tag = FactoryBot.create(:tag, :for_movie, user: tsundoc.user)
         FactoryBot.create(:tagging, tsundoc: tsundoc, tag: tag)
       end
     end
