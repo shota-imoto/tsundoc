@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 0) do
   end
 
   create_table "tsundocs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "tsundoc_list_id", null: false
+    t.integer "user_id", null: false
     t.integer "tsundocable_id", null: false
     t.string "tsundocable_type", null: false
     t.integer "status", default: 0, null: false

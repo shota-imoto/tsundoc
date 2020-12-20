@@ -3,7 +3,7 @@
 # Command: ridgepole -c config/database.yml --apply
 
 create_table "tsundocs", force: :cascade do |t|
-  t.integer "tsundoc_list_id", null: false
+  t.integer "user_id", null: false
   t.integer "tsundocable_id", null: false
   t.string "tsundocable_type", null: false
   t.integer "status", null: false, default: 0
